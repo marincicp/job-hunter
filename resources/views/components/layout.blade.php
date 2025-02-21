@@ -27,7 +27,25 @@
                 <a href="#">Companies</a>
 
             </div>
-            <div>btn</div>
+
+            @auth
+
+                <div class="flex">
+
+                    <a href="/jobs/create">Post a Job</a>
+
+                    <form action="/logout" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button>Logout</button>
+                    </form>
+                </div>
+            @endauth
+
+            @guest
+                <a href="/register">Sing Up</a>
+                <a href="/login">Log In</a>
+            @endguest
 
         </nav>
 
