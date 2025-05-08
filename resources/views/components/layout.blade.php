@@ -12,8 +12,8 @@
 <body class="bg-black text-white">
 
 
-    <div class="p-4">
-        <nav class="flex justify-between items-center border-b border-white/10">
+    <div class="p-4 sticky shadow top-0 z-10 bg-black">
+        <nav class=" flex justify-between items-center border-b border-white/10 p-2">
 
             <div>
                 <a href="/">
@@ -22,30 +22,37 @@
             </div>
             <div class=" space-x-4 font-bold">
 
-                <a href="#">Jobs</a>
+                <a href="/">Jobs</a>
                 <a href="#">Carrers</a>
-                <a href="#">Companies</a>
+
+                @auth
+
+                    <a href="/jobs/employer/{{ Auth::user()->employer->id }}">My jobs</a>
+                @endauth
 
             </div>
 
-            @auth
+            <div class="flex gap-8 items-center justify-center">
 
-                <div class="flex">
+                @auth
 
-                    <a href="/jobs/create">Post a Job</a>
-
+                    <x-nav-link href="/jobs/create" label="Post a Job" />
                     <form action="/logout" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button>Logout</button>
+                        <button
+                            class="bg-gray-200 rounded text-black p-2 hover:bg-white transition-all duration-300">Logout</button>
                     </form>
-                </div>
-            @endauth
+                @endauth
 
-            @guest
-                <a href="/register">Sing Up</a>
-                <a href="/login">Log In</a>
-            @endguest
+                @guest
+
+
+                    <x-nav-link href="/register" label="Sign Up" />
+                    <x-nav-link href="/login" label="Log In" />
+
+                @endguest
+            </div>
 
         </nav>
 
