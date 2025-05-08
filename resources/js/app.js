@@ -1,3 +1,3 @@
 import "./bootstrap";
 
-import.meta.blob(["../images/**"]);
+// import.meta.blob(["../images/**"]);

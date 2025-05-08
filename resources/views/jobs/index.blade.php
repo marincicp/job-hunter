@@ -11,7 +11,7 @@
             </form> --}}
 
             <x-form.form action="/search" method="GET">
-                <x-form.input name="query" placeholder="Web Developer..." />
+                <x-form.input name="query" class="mt-6" placeholder="Web Developer..." />
 
             </x-form.form>
 

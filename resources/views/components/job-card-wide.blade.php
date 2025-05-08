@@ -17,6 +17,24 @@
         <p class="text-gray-500 mt-auto ">{{ $job->schedule }} - {{ $job->salary }}</p>
     </div>
 
+    <div class="self-center flex bg-green-300">
+        {{-- <form action={{ route('jobs.edit', $job->id) }} method="POST" class="flex-1">
+
+            @csrf
+            @method('PUT')
+            <button class="bg-blue-500 px-2 py-1 rounded uppercase inline-block">Edit</button>
+        </form>
+        <form action="/jobs" class="flex-1">
+
+            @csrf
+            @method('DELETE')
+            <button class="bg-red-500 px-2 py-1 rounded uppercase inline-block">Delete</button>
+        </form> --}}
+
+
+        <a href="{{ route('jobs.edit', $job->id) }}">Edit</a>
+
+    </div>
     <div class="">
 
         @foreach ($job->tags as $tag)

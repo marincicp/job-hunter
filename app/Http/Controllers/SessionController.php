@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SessionRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Password;
@@ -35,6 +36,9 @@ class SessionController extends Controller
             "email" => ["required", "email"],
             "password" => ["required", Password::min(3)]
         ]);
+
+        // $userData = $request->validated();
+        // dd($userData);
 
         if (! Auth::attempt($userData)) {
             throw ValidationValidationException::withMessages([
